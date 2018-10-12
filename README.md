@@ -37,6 +37,17 @@ Once you've installed the required libraries, you should be able to simply run:
 ./audit.py hosts (jira, confluence, stash, or all)
 ```
 
+example:
+```
+./audit.py jira
+```
+```
+./audit.py jira confluence
+```
+```
+./audit.py jira all
+```
+
 As it runs, the script will echo out each Plugin it finds, along with
 description, current version, and pricing; it then updates the sheet with this
 information.
