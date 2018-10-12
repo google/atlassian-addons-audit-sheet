@@ -45,7 +45,7 @@ example:
 ./audit.py jira confluence
 ```
 ```
-./audit.py jira all
+./audit.py all
 ```
 
 As it runs, the script will echo out each Plugin it finds, along with
