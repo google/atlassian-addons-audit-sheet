@@ -6,9 +6,13 @@ Confluence, and Bitbucket with a Google Sheet for documentation and auditing.
 ## Getting Started
 
 You will need to update **audit.py** for your environment:
-* *sheet_url* - URL of your Google Sheet. A sample that you can copy is here:
+* **sheet_url** - URL of your Google Sheet. A sample that you can copy is here:
 https://docs.google.com/spreadsheets/d/1iBHfz0TOyPxC3JRQp30v2Qs9lHbKfwOG-eZ53BK_ok0/edit#gid=0
-* *possibletargets* - Sheet Names and URLs of your Confluence, JIRA, and Stash servers.
+  * Replace `YOURGOOGLESHEET` with your Google Sheet URL.
+* **possibletargets** - Sheet Names and URLs of your Confluence, JIRA, and Stash servers.
+  * Replace `YOURCONFLUENCESERVER` with URL to your Confluence server.
+  * Replace `YOURJIRASERVER` with URL to your Jira server.
+  * Replace `YOURBITBUCKETSERVER` with URL to your Stash/Bitbucket server.
 
 You will also need to update **jira_credentials.py** with your username and
 password. (We assume the same credentials will work across all your servers.)
@@ -42,8 +46,10 @@ information.
 **sheetscript.gs** is an Apps Script that can be added to your Google Sheet to
 automatically generate an email when licenses are about to expire. Additionally,
 it adds a pop-up alert to the sheet warning users not to edit any columns that
-may be overwritten by the audit.py script. You'll need to specify
-**emailAddress** and optionally, **daysprior** (default 7-day notice).
+may be overwritten by the audit.py script. You'll need to update **sheetscript.gs**
+then specify these values:
+* **emailAddress**, replace `YOUREMAILADDRESS` with your email address.
+* (optional) **daysprior** (default 7-day notice), replace `7` with your preferred day number.
 
 The [sample Google Sheet](https://docs.google.com/spreadsheets/d/1iBHfz0TOyPxC3JRQp30v2Qs9lHbKfwOG-eZ53BK_ok0/edit#gid=0)
 contains conditional formatting that automatically color codes cells
