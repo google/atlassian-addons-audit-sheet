@@ -5,17 +5,16 @@ Confluence, and Bitbucket with a Google Sheet for documentation and auditing.
 
 ## Getting Started
 
-You will need to update **audit.py** for your environment:
-* **sheet_url** - URL of your Google Sheet. A sample that you can copy is here:
+You will need to update **config_audit.py** for your environment:
+* **google_sheet_url** - URL of your Google Sheet. A sample that you can copy is here:
 https://docs.google.com/spreadsheets/d/1iBHfz0TOyPxC3JRQp30v2Qs9lHbKfwOG-eZ53BK_ok0/edit#gid=0
   * Replace `YOURGOOGLESHEET` with your Google Sheet URL.
-* **possibletargets** - Sheet Names and URLs of your Confluence, JIRA, and Stash servers.
+* **target_url** - Sheet Names and URLs of your Confluence, JIRA, and Stash servers.
   * Replace `YOURCONFLUENCESERVER` with URL to your Confluence server.
   * Replace `YOURJIRASERVER` with URL to your Jira server.
   * Replace `YOURBITBUCKETSERVER` with URL to your Stash/Bitbucket server.
-
-You will also need to update **jira_credentials.py** with your username and
-password. (We assume the same credentials will work across all your servers.)
+*  **jira_credentials** - your username and password. (We assume the same credentials will 
+work across all your servers.)
 
 ## Prerequisites
 
