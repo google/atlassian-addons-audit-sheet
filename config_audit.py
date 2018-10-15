@@ -14,5 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-user = YOURJIRAUSER
-password = YOURJIRAPASSWORD
+jira_credentials = {
+  'user': 'YOURJIRAUSER',
+  'password': 'YOURJIRAPASSWORD'}
+
+target_url = {
+  'confluence': 'https://YOURCONFLUENCESERVER/',
+  'jira': 'https://YOURJIRASERVER/',
+  'stash': 'https://YOURBITBUCKETSERVER/'}
+
+google_sheet_url = 'YOURGOOGLESHEET'

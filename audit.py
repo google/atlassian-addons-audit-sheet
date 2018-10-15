@@ -22,6 +22,8 @@ import pygsheets
 from pprint import pprint
 import httplib2
 http_client = httplib2.Http(timeout=100)
+# import configuration file
+import config_audit as config
 
 from datetime import datetime, timezone
 from time import strftime, localtime
@@ -35,24 +37,23 @@ parser.add_argument('hosts', metavar='hosts', type=str, nargs='+',
 args = parser.parse_args()
 
 # Shared details
-import jira_credentials
-user = jira_credentials.user
-password = jira_credentials.password
+user = config.jira_credentials['user']
+password = config.jira_credentials['password']
 headers = {'X-Atlassian-Token': 'nocheck'}
 marketurl = 'https://marketplace.atlassian.com/'
 
 # Google Sheets details
 client = pygsheets.authorize(http_client=http_client)
 
-sheet_url = 'YOURGOOGLESHEET' 
+sheet_url = config.google_sheet_url
 
 ss = client.open_by_url(sheet_url)
 
 targets = {}
 
-possibletargets = {'Confluence': 'https://YOURCONFLUENCESERVER/',
-	'JIRA': 'https://YOURJIRASERVER/',
-	'Stash': 'https://YOURBITBUCKETSERVER/'}
+possibletargets = {'Confluence': config.target_url['confluence'],
+	'JIRA': config.target_url['jira'],
+	'Stash': config.target_url['stash']}
 
 for i in args.hosts:
 	if i == 'jira':
