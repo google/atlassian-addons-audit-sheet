@@ -94,7 +94,7 @@ for worksheet, base_url in targets.items():
 	installed = []
 
 	for plugin in allplugins:
-		if plugin["enabled"] and plugin["userInstalled"]:
+		if plugin["enabled"] and plugin["userInstalled"] and plugin["key"] != 'com.pyxis.greenhopper.jira':
 			name = plugin["name"]
 			description = plugin.get("description")
 			current = plugin["version"]
