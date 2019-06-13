@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 
 # Copyright 2018 Google LLC
 # 
@@ -73,7 +73,7 @@ for worksheet, base_url in targets.items():
 	sheet = ss.worksheet_by_title(worksheet)
 	
 	# Get all the plugins recorded in sheet, to be checked later for disabled plugins (diff against installed)
-	sheetplugins = sheet.get_values(start=(2,2), end=(99,2), returnas='matrix', include_empty=False, include_all=False)
+	sheetplugins = sheet.get_values(start=(2,2), end=(99,2), returnas='matrix')
 
 	recorded = []
 
@@ -202,7 +202,7 @@ for worksheet, base_url in targets.items():
 			cell_list.append(datacenter)
 			outer_cell = [cell_list]
 	
-			sheet.update_cells(crange=range, values=outer_cell)
+			sheet.update_values(crange=range, values=outer_cell)
 
 	# Strikethrough disabled plugins
 
@@ -223,4 +223,4 @@ for worksheet, base_url in targets.items():
 			strikename.note = 'Disabled: ' + timestamp
 
 	# Add a timestamp
-	sheet.update_cell('A1', worksheet + ' Plugins Updated:\n' + timestamp)
+	sheet.update_values('A1', worksheet + ' Plugins Updated:\n' + timestamp)
